@@ -1,15 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <title>Chatty</title>
-      <link type="text/css" rel="stylesheet" href="css/stylesheet.css" />
-      <link href="http://fonts.googleapis.com/css?family=Open+Sans Condensed:300italic,300,700" rel="stylesheet" type="text/css">
-   </head>
-   <body>
-      <a title="Create" href="/create" id="create">
-         <div id="createbutton">
-            <div id="big">Create Room</div>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+<link rel="stylesheet" href="/stylesheets/main.css">
+<title>Chatty</title>
+</head>
+<body>
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12 text-center">
+            <h2>Chat box</h2>
+            <div class="input-group col-6 mx-auto enter-name">
+               <input type="text" id="name-input" class="form-control" placeholder="Enter Your Name">
+               <span class="input-group-addon submit-name">Enter</span>
+            </div>
          </div>
-      </a>
-   </body>
+         <div class="col-md-12">
+            <div class="chat-window">
+               <div id="messages"></div>
+            </div>
+         </div>
+         <div class="md-col-12">
+            <div class="input-group enter-chat-message">
+               <input type="text" id="chat-input" class="form-control" placeholder="Input">
+               <span class="input-group-addon submit-chat-message">Submit</span>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-12 text-center">
+         <small>
+            Author: Keith Wheeler
+         </small>
+      </div>
+   </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/chat.js"></script>
+</body>
 </html>
