@@ -1,3 +1,7 @@
+body {
+  background-color: lightcoral;
+}
+
 h2 {
   margin-top: 20px;
 }
@@ -14,12 +18,13 @@ h2 {
 }
 
 .input-group-addon {
-  background-color: rgb(2, 117, 216);
+  background-color: darkolivegreen;
   color: #efefef;
 }
 
 #messages {
   padding: none;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .msg {
