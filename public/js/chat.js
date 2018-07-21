@@ -99,5 +99,13 @@ $(function () {
 	socket.on('member', function(name){
 		$('#messages').append($('<div class="msg member">').text(name + ' has left the room'));
 	  $('.chat-window').scrollTop($('#messages').height());
-	})
+	});
+
+	// handle old messages
+	socket.on('db', function(res) {
+		for (var i = 0; i <= res.rowCount; i++) {
+			$('#messages').append($('<div class="msg old-message">').html('<span class="member-name">' + res.rows[i].username + '</span>: ' + res.rows[i].message));
+			$('.chat-window').scrollTop($('#messages').height());
+		}
+	});
  });

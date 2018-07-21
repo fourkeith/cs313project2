@@ -4,7 +4,11 @@ var express  = require('express');
 var app      = express();
 var http     = require('http').Server(app);
 var io       = require('socket.io')(http);
-const {Pool} = require('pg');
+const {Pool}       = require('pg');
+var routes   = require('router');
+
+var dburl = "postgres://Chatty:cangetin@localhost:5432/Chatty"
+var pool = new Pool({connectionString: dburl});
 
 // code for heroku
 var port = process.env.PORT || 5000;
@@ -22,10 +26,19 @@ http.listen(port, function() {
 
   io.on('connection', function (socket) {
     console.log('User connected');
-    socket.on('disconnect', function () {
-      console.log('User disconnected');
+
+    socket.on('db', function() {
+      pool.query('SELECT * FROM messages', function(res) {
+        socket.emit('db', res);
+      });
     });
-  
+
+    socket.on('db', function(socket) {
+      pool.query('SELECT * FROM messages', function(res) {
+        socket.emit('db', res);
+      });
+    });
+
     socket.on('chat', function (msg) {
       io.emit('chat', msg);
     });
