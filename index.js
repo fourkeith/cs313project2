@@ -6,13 +6,7 @@ var http     = require('http').Server(app);
 var io       = require('socket.io')(http);
 const {Pool} = require('pg');
 
-var pool = new Pool({
-  user: 'Chatty',
-  host: 'localhost',
-  database: 'Chatty',
-  password: 'cangetin',
-  port: 5432,
-});
+var pool = new Pool({connectionString: 'postgres://letrphpsefokzn:79717f577dfc9a83007381a0ccd4455f6060b4744aa2dc862aa9b81b01336bac@ec2-107-22-169-45.compute-1.amazonaws.com:5432/d8p5asrb0aa467',});
 
 // code for heroku
 var port = process.env.PORT || 5000;
